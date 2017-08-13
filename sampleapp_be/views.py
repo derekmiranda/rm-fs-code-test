@@ -7,13 +7,6 @@ from pyramid.view import view_config
 def home(request):
     return {}
 
-# /foo
-@view_config(route_name='foo', renderer='json')
-def foo(request):
-    return {
-        'data': 'bar'
-    }
-
 # /data
 @view_config(route_name='data', renderer='json', request_method='GET')
 def get_data(request):
