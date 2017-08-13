@@ -18,5 +18,16 @@ def get_data(request):
         ('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
     )
     request.response.headerlist.extend(headers)
+
+    csv_path = request.static_path('sampleapp_be:assets/properties.csv')
+    _parse_csv_asset(csv_path)
+
     return {}
 
+def _parse_csv_asset(path):
+    print(path)
+    # check cached dict
+    # if none, then parse csv
+
+    # import csv
+    # with open(
