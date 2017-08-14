@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from './Button';
 import Table from './Table';
+import processProperty from './processProperty';
 
 const DATA_URL = 'http://localhost:9000/data';
 
@@ -12,7 +13,8 @@ class App extends Component {
     }
     this._fetchData = async () => {
       const res = await fetch(DATA_URL);
-      const properties = await res.json();
+      const rawProperties = await res.json();
+      const properties = rawProperties.map(processProperty);
       this.setState({
         properties,
       })
