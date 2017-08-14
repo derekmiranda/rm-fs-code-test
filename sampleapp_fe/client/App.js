@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from './Button';
+import Table from './Table';
 
 const DATA_URL = 'http://localhost:9000/data';
 
@@ -23,9 +24,7 @@ class App extends Component {
       <main>
         <h1>Hello World!</h1>
         <Button fetchData={this._fetchData} text='Fetch Properties' />
-        <ul>{this.state.properties && 
-          this.state.properties.map((property, i) => <li key={i}>{JSON.stringify(property)}</li>)
-        }</ul>
+        <Table properties={this.state.properties} />
       </main>
     )
   }
