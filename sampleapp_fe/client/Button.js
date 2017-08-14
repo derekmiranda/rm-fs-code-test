@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Hello World!</h1>
-      </div>
-    )
-  }
+const Button = ({ fetchData, text }) => (
+  <button onClick={fetchData}>{text}</button>
+)
+
+Button.propTypes = {
+  fetchData: PropTypes.func,
+  text: PropTypes.string,
 }
 
-export default App;
+export default Button;
