@@ -1,13 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tr from './Tr';
+import orderedFieldInfo from './orderedFieldInfo';
+
+const getPropertyValuesInOrder = (property) => {
+  const propertyValues = orderedFieldInfo.map(
+    fieldInfo => property[fieldInfo.rawName]
+  )
+  return propertyValues;
+}
 
 const Table = ({ properties }) => {
+  const labels = orderedFieldInfo.map(fieldInfo => fieldInfo.label);
+  const rowValues = properties.map(property => getPropertyValuesInOrder(property));
+  const rows = rowValues.map((values, i) => (
+    <Tr key={i} values={values}/>
+  ))
+
   return (
-    <ul>{
-    properties.map((property, i) => (
-      <li key={i}>{JSON.stringify(property)}</li>
-      ))
-    }</ul>
+    <table>
+      <thead>
+        <Tr values={labels}/>
+      </thead>
+      <tbody>
+        {rows}
+      </tbody>
+    </table>
   )
 }
 

@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import Td from './Td';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Hello World!</h1>
-      </div>
-    )
-  }
+const Tr = ({ values }) => {
+  const cells = values.map((value, i) => <Td key={i} value={value}/>);
+  return (
+    <tr>
+      {cells}
+    </tr>
+  )
 }
 
-export default App;
+Tr.propTypes = {
+  values: PropTypes.array,
+}
+
+export default Tr;
