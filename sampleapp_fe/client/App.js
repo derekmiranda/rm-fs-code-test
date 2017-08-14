@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <main>
-        <h1>Hello World!</h1>
+        <h1>Properties</h1>
         <Button fetchData={this._fetchData} text='Fetch Properties' />
         <Table properties={this.state.properties} />
       </main>
