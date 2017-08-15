@@ -38,17 +38,19 @@ def _parse_csv_asset(path):
     with open(path, newline='') as csv_file:
         reader = csv.DictReader(csv_file)
 
-        def process_property(prop):
-            desired_fields = ('PROP_NAME', 'ADDRESS', 'CITY', 'STATE_ID', 'ZIP')           
-            processed_prop = {field: prop[field] for field in desired_fields} 
-            
+        def process_property(property):
+            desired_fields = ('PROP_NAME', 'ADDRESS', 'CITY', 'STATE_ID', 'ZIP')
+            processed_prop = {field: property[field] for field in desired_fields} 
+
             # Add MISSING_FIELD_COUNT 
-            missing_field_count = reduce(
-                lambda count, field: count if processed_prop[field] else count + 1,
-                desired_fields,
-                0
-            )
-            processed_prop['MISSING_FIELD_COUNT'] = missing_field_count
+            def get_missing_field_count(prop):
+                missing_field_count = reduce(
+                    lambda count, field: count if prop[field] else count + 1,
+                    prop.keys(),
+                    0
+                )
+                return missing_field_count
+            processed_prop['MISSING_FIELD_COUNT'] = get_missing_field_count(property)
             
             # Add MISSING_DATA_ENCODING 
             def get_missing_data_encoding(prop):
@@ -56,7 +58,7 @@ def _parse_csv_asset(path):
                 curr_num = 0
                 on_columns_with_data = None
 
-                for field in desired_fields:
+                for field in prop.keys():
                     val = prop[field]
                     field_has_data = bool(val)
 
@@ -76,7 +78,7 @@ def _parse_csv_asset(path):
                 encoded_num_builder += str(curr_num)
                 return int(encoded_num_builder)
 
-            processed_prop['MISSING_DATA_ENCODING'] = get_missing_data_encoding(processed_prop)
+            processed_prop['MISSING_DATA_ENCODING'] = get_missing_data_encoding(property)
 
             return processed_prop
             
