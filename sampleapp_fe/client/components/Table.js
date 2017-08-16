@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Tr from './Tr';
-import orderedFieldInfo from './orderedFieldInfo';
+import orderedFieldInfo from '../utils/orderedFieldInfo';
 
 const getPropertyValuesInOrder = (property) => {
   const propertyValues = orderedFieldInfo.map(

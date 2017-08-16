@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import Td from './Td';
 
 const Tr = ({ values }) => {
-  const cells = values.map((value, i) => <Td key={i} value={value}/>);
+  const cells = values.map(
+    (value, i) => <Td key={i} value={value}/>
+  );
+  
   return (
     <tr>
       {cells}

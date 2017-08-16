@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from './Button';
 import Table from './Table';
-import processProperty from './processProperty';
+import processProperty from '../utils/processProperty';
 
 const DATA_URL = 'http://localhost:9000/data';
 
