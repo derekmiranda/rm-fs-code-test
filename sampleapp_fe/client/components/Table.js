@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Tr from './Tr';
-import orderedFieldInfo from '../utils/orderedFieldInfo';
 
 const style = {
   border: '1px solid black',
