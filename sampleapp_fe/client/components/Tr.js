@@ -9,7 +9,7 @@ const Tr = (props) => {
   );
 
   return (
-    <tr style={style}>
+    <tr>
       {cells}
     </tr>
   )
