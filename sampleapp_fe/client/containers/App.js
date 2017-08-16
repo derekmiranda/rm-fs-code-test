@@ -16,7 +16,6 @@ class App extends Component {
       properties: [],
       fetchState: '',
     }
-
     const setStatePromise = (stateChange) => {
       const component = this;
       return new Promise((resolve, reject) => {
