@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import Button from './Button';
-import Table from './Table';
+import TableContainer from '../containers/TableContainer';
 import processProperty from '../utils/processProperty';
 
 const DATA_URL = 'http://localhost:9000/data';
+
+const style = {
+  fontFamily: 'sans-serif',
+}
 
 class App extends Component {
   constructor() {
@@ -22,11 +26,15 @@ class App extends Component {
   }
 
   render() {
+    const table = this.state.properties.length ?
+      <TableContainer properties={this.state.properties} /> :
+      null;
+
     return (
-      <main>
+      <main style={style}>
         <h1>Properties</h1>
         <Button fetchData={this._fetchData} text='Fetch Properties' />
-        <Table properties={this.state.properties} />
+        {table}
       </main>
     )
   }

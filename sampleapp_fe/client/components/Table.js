@@ -3,22 +3,20 @@ import PropTypes from 'prop-types';
 import Tr from './Tr';
 import orderedFieldInfo from '../utils/orderedFieldInfo';
 
-const getPropertyValuesInOrder = (property) => {
-  const propertyValues = orderedFieldInfo.map(
-    fieldInfo => property[fieldInfo.rawName]
-  )
-  return propertyValues;
+const style = {
+  border: '1px solid black',
 }
 
-const Table = ({ properties }) => {
-  const labels = orderedFieldInfo.map(fieldInfo => fieldInfo.label);
-  const rowValues = properties.map(property => getPropertyValuesInOrder(property));
-  const rows = rowValues.map((values, i) => (
-    <Tr key={i} values={values}/>
-  ))
+const headerStyle = {
+  backgroundColor: 'powderblue',
+}
 
+const Table = ({ labels, rowValues }) => {
+  const rows = rowValues.map((values, i) => (
+    <Tr key={i} values={values} style={headerStyle}/>
+  ))
   return (
-    <table>
+    <table style={style}>
       <thead>
         <Tr values={labels}/>
       </thead>

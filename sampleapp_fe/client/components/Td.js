@@ -1,8 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const tdStyle = {
+  border: '1px solid black',
+}
+
 const missingStyle = {
   color: 'gray',
+  fontStyle: 'italic',
 }
 
 const missing = (
@@ -10,7 +15,7 @@ const missing = (
 )
 
 const Td = ({ value }) => (
-  <td>{ value !== '' ? value : missing }</td>
+  <td style={tdStyle}>{ value !== '' ? value : missing }</td>
 )
 
 export default Td;
