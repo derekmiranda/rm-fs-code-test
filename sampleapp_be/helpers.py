@@ -16,9 +16,10 @@ def get_missing_field_count(prop):
     return missing_field_count
 
 def get_missing_data_encoding(prop):
-    encoded_num_builder = ""
+    encoded_num_builder = []
     curr_num = 0
     on_columns_with_data = None
+    add_num = lambda num: encoded_num_builder.append(str(num))    
 
     for field in prop.keys():
         val = prop[field]
@@ -32,13 +33,12 @@ def get_missing_data_encoding(prop):
                 curr_num += 1
             else:
                 # append curr_num to num_builder
-                encoded_num_builder += str(curr_num)
+                add_num(curr_num)
                 # reset curr_num to 1
                 curr_num = 1
         on_columns_with_data = field_has_data
-
-    encoded_num_builder += str(curr_num)
-    return int(encoded_num_builder)
+    add_num(curr_num)
+    return '-'.join(encoded_num_builder)
 
 def process_property(property):
     desired_fields = ('PROP_NAME', 'ADDRESS', 'CITY', 'STATE_ID', 'ZIP')
