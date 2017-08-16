@@ -12,9 +12,12 @@ const headerStyle = {
 
 const Table = (props) => {
   const { labels, rowValues } = props;
-  const rows = rowValues.map((values, i) => (
-    <Tr key={i} values={values}/>
-  ))
+  const rows = rowValues.map((values, i) => {
+    return (
+      <Tr key={i} values={values}/>
+    )
+  })
+
   return (
     <table style={style}>
       <thead style={headerStyle}>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Td from './Td';
 
 const Tr = (props) => {
-  const { values, style } = props;
+  const { values } = props;
   const cells = values.map(
     (value, i) => <Td key={i} value={value}/>
   );
