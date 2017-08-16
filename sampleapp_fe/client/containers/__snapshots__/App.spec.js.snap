@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should match snapshot 1`] = `
+<main
+  style={
+    Object {
+      "fontFamily": "sans-serif",
+    }
+  }
+>
+  <h1>
+    California Properties
+  </h1>
+  <button
+    onClick={[Function]}
+    style={
+      Object {
+        "fontSize": "1em",
+        "paddingBottom": "0.5em",
+      }
+    }
+  >
+    Fetch Properties
+  </button>
+  
+</main>
+`;
