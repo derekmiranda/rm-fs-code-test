@@ -1,6 +1,6 @@
 from pyramid.response import Response
 from pyramid.view import view_config
-from .helpers import get_csv_path, process_property, parse_csv_asset
+from .helpers import get_csv_path, parse_csv_asset
 
 CSV_PATH = get_csv_path()
 
