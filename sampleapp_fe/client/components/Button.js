@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const style = {
+  fontSize: '1em',
+}
+
 const Button = (props) => {
   const { fetchData, text } = props;
   return (
-    <button onClick={fetchData}>{text}</button>
+    <button onClick={fetchData} style={style}>{text}</button>
   )
 }
 

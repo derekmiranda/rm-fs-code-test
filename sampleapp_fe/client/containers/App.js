@@ -47,7 +47,9 @@ class App extends Component {
     return (
       <main style={style}>
         <h1>California Properties</h1>
-        <Button fetchData={this._fetchData} text='Fetch Properties' />
+        <div style={{ paddingBottom: '0.5em'}}>
+          <Button fetchData={this._fetchData} text='Fetch Properties' />
+        </div>
         {fetchState}
         {table}
       </main>
