@@ -19,14 +19,6 @@ const orderedFieldInfo = [
     rawName: 'ZIP',
     label: 'Zip Code',
   },
-  {
-    rawName: 'MISSING_FIELD_COUNT',
-    label: 'Missing Field Count',
-  },
-  {
-    rawName: 'MISSING_DATA_ENCODING',
-    label: 'Missing Data Encoding',
-  },
 ]
 
 export default orderedFieldInfo;
