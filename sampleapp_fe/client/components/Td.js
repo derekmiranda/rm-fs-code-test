@@ -14,8 +14,11 @@ const missing = (
   <span style={missingStyle}>Missing Data</span>
 )
 
-const Td = ({ value }) => (
-  <td style={tdStyle}>{ value !== '' ? value : missing }</td>
-)
+const Td = (props) => {
+  const { value } = props;
+  return (
+    <td style={tdStyle}>{ value !== '' ? value : missing }</td>
+  )
+}
 
 export default Td;

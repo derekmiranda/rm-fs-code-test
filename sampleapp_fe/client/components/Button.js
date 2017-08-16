@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ fetchData, text }) => (
-  <button onClick={fetchData}>{text}</button>
-)
+const Button = (props) => {
+  const { fetchData, text } = props;
+  return (
+    <button onClick={fetchData}>{text}</button>
+  )
+}
 
 Button.propTypes = {
   fetchData: PropTypes.func,
