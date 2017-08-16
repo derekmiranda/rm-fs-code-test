@@ -32,7 +32,7 @@ class App extends Component {
 
     return (
       <main style={style}>
-        <h1>Properties</h1>
+        <h1>California Properties</h1>
         <Button fetchData={this._fetchData} text='Fetch Properties' />
         {table}
       </main>
