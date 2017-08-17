@@ -1,6 +1,7 @@
 from pyramid.response import Response
 from pyramid.view import view_config
-from .helpers import get_csv_path, parse_csv_asset
+from .helpers import get_csv_path
+from .models import get_processed_properties
 
 CSV_PATH = get_csv_path()
 
@@ -20,7 +21,7 @@ def get_data(request):
         ('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
     )
     request.response.headerlist.extend(headers)
-    properties = parse_csv_asset(CSV_PATH)
+    properties = get_processed_properties()
     return properties
 
 

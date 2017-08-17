@@ -1,4 +1,4 @@
-from functools import lru_cache, reduce
+from functools import reduce
 from pyramid.path import AssetResolver
 
 def get_csv_path():
@@ -46,12 +46,3 @@ def process_property(property):
     processed_prop['MISSING_FIELD_COUNT'] = get_missing_field_count(property)
     processed_prop['MISSING_DATA_ENCODING'] = get_missing_data_encoding(property, '-')
     return processed_prop
-
-@lru_cache(maxsize=2)
-def parse_csv_asset(path):
-    import csv
-    with open(path, newline='') as csv_file:
-        reader = csv.DictReader(csv_file)
-        in_cali = lambda prop: prop['STATE_ID'] == 'ca'
-        properties = [process_property(property) for property in reader if in_cali(property)]
-        return properties
