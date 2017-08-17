@@ -3,7 +3,7 @@ const capitalize = (str) => str.split(' ')
   .join(' ')
 
 export default (property) => {
-  const newProperty = Object.assign(property, {
+  const newProperty = Object.assign({}, property, {
     PROP_NAME: capitalize(property.PROP_NAME),
     ADDRESS: capitalize(property.ADDRESS),
     CITY: capitalize(property.CITY),
