@@ -1,5 +1,18 @@
 # Realty Mogul Interview Assignment
 
+## My Own Notes
+Backend
+- For MISSING_DATA_ENCODING: using hyphen to separate encoded missing numbers to prevent ambiguity while keeping it in a relatively compressed format
+- Caching CSV read from file to prevent redundant work
+- Using prettyjson renderer to make json data more human-readable if accessing from browser
+
+Frontend
+- Mostly following smart container/dumb component paradigm
+- prop-types - for establishing type consistency when passing props to components
+- babel-polyfill - allows for new ES6+ features in older browsers
+- async-to-generator Babel plugin to allow async func w/in App.js
+- jest/enzyme - Snapshot rendering and helper function tests
+
 ## Quick Overview
 Congratulations! You've passed our initial round of interviews and we're
 curious about your technical chops. Our team is in the business of building
