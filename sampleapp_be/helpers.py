@@ -39,10 +39,3 @@ def get_missing_data_encoding(prop, separator):
         on_columns_with_data = field_has_data
     add_num(curr_num)
     return separator.join(encoded_num_builder)
-
-def process_property(property):
-    desired_fields = ('PROP_NAME', 'ADDRESS', 'CITY', 'STATE_ID', 'ZIP')
-    processed_prop = {field: property[field] for field in desired_fields} 
-    processed_prop['MISSING_FIELD_COUNT'] = get_missing_field_count(property)
-    processed_prop['MISSING_DATA_ENCODING'] = get_missing_data_encoding(property, '-')
-    return processed_prop
