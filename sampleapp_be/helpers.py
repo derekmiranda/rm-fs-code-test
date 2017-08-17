@@ -1,4 +1,3 @@
-from functools import reduce
 from pyramid.path import AssetResolver
 
 def get_csv_path():

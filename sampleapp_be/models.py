@@ -1,4 +1,4 @@
-from functools import lru_cache
+from functools import lru_cache, reduce
 from .helpers import get_csv_path
 
 @lru_cache(maxsize=2)
