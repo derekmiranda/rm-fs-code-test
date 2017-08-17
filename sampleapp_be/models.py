@@ -3,7 +3,6 @@ from .helpers import process_property, get_csv_path
 
 @lru_cache(maxsize=2)
 def parse_csv_asset(path):
-    'Parse CSV file into JSON format'
     import csv
     with open(path, newline='') as csv_file:
         reader = csv.DictReader(csv_file)
@@ -11,7 +10,6 @@ def parse_csv_asset(path):
         return properties
 
 def get_processed_properties():
-    'Get processed list of properties'
     csv_path = get_csv_path()
     properties = parse_csv_asset(csv_path)
     in_cali = lambda prop: prop['STATE_ID'] == 'ca'
