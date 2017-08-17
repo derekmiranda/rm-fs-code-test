@@ -3,6 +3,7 @@ node_modules
 bundle.js
 
 # pyramid
+*lastfailed
 *.egg
 *.egg-info
 .eggs/
