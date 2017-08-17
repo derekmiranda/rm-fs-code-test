@@ -11,17 +11,25 @@ exports[`<App /> should match snapshot 1`] = `
   <h1>
     California Properties
   </h1>
-  <button
-    onClick={[Function]}
+  <div
     style={
       Object {
-        "fontSize": "1em",
         "paddingBottom": "0.5em",
       }
     }
   >
-    Fetch Properties
-  </button>
+    <button
+      onClick={[Function]}
+      style={
+        Object {
+          "fontSize": "1em",
+          "paddingBottom": "0.5em",
+        }
+      }
+    >
+      Fetch Properties
+    </button>
+  </div>
   
 </main>
 `;
