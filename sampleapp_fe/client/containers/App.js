@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../components/Button';
 import TableContainer from './TableContainer';
-import processProperty from '../utils/processProperty';
 
 const DATA_URL = 'http://localhost:9000/data';
 
@@ -27,8 +26,7 @@ class App extends Component {
       await setStatePromise({ fetchState: 'Fetching data...' });
       const res = await fetch(DATA_URL);
       await setStatePromise({ fetchState: '' });
-      const rawProperties = await res.json();
-      const properties = rawProperties.map(processProperty);
+      const properties = await res.json();
       this.setState({
         properties,
       })

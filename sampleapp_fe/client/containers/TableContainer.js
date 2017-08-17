@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import orderedFieldInfo from '../utils/orderedFieldInfo';
 import Table from '../components/Table';
+import orderedFieldInfo from '../utils/orderedFieldInfo';
+import processProperty from '../utils/processProperty';
 
 const getPropertyValuesInOrder = (property) => {
   const propertyValues = orderedFieldInfo.map(
@@ -12,7 +13,9 @@ const getPropertyValuesInOrder = (property) => {
 
 const TableContainer = ({ properties }) => {
   const labels = orderedFieldInfo.map(fieldInfo => fieldInfo.label);
-  const rowValues = properties.map(property => getPropertyValuesInOrder(property));
+  const rowValues = properties
+    .map(processProperty)
+    .map(getPropertyValuesInOrder);
 
   return <Table rowValues={rowValues} labels={labels}/>
 }
